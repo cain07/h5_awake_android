@@ -1,6 +1,7 @@
 # h5_awake_android
 
 介绍
+   使用Scheme方式自定义URL来跨应用间调用，踩了一些坑，现在记录一下
 
 ##需求
 
@@ -12,7 +13,7 @@
 
 <a href="[scheme]://[host]/[path]?[query]">启动应用程序</a>
 
-首先在AndroidManifest.xml的MAIN Activity下追加以下内容。
+manifest中配置能接受Scheme方式启动的activity
 
 为了 能点击 返回到 首页 所以要创建 空白的 启动 跳转页面 AwakenActivity
 ※必须添加项
