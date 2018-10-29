@@ -76,7 +76,7 @@ Uri uri=Uri.parse("monday://cain/october?userId=11");
 Intent intent=new Intent(Intent.ACTION_VIEW,uri);
 startActivity(intent);
 
-实际使用中的一些小细节
+###实际使用中的一些小细节
 
 当自定义的URL配置在LAUNCHER对应的Activity上时，上述配置就足够了。
 
@@ -84,7 +84,7 @@ startActivity(intent);
 
 
 
-问题一：使用自定义的URL启动Activity时，默认是已FLAG_ACTIVITY_NEW_TASK的方式启动的，所以可能存在URL启动的Activity跟应用已启动的Activity不再同一个堆栈的现象。
+####问题一：使用自定义的URL启动Activity时，默认是已FLAG_ACTIVITY_NEW_TASK的方式启动的，所以可能存在URL启动的Activity跟应用已启动的Activity不再同一个堆栈的现象。
 
 解决方式：这种情况下，需要在manifest中将Activity多配置一个taskAffinity属性，约束URL启动的Activity与应用自身的启动的Activity在同一个堆栈中。
 
@@ -92,7 +92,7 @@ android:launchMode="singleTask"
 
 
 
-问题二：应用A使用url的方式唤起应用B的Activity时，可能存在应用B的Activity启动了，但是堆栈仍然在后台的现象，即应用B的Activity没有聚焦的问题。
+####问题二：应用A使用url的方式唤起应用B的Activity时，可能存在应用B的Activity启动了，但是堆栈仍然在后台的现象，即应用B的Activity没有聚焦的问题。
 
 解决方式：这种情况下，应用B的Activity收到启动的请求后，可以主动将Activity对应的堆栈移动到最前端。
 
